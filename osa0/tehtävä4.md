@@ -27,9 +27,9 @@ sequenceDiagram
     Note right of browser: The browser executes the callback function that renders the notes 
 
     user->>browser: user writes text and presses the button
-    activate server
     browser->>server: the infromation is forwarded to the server
-    deactivate server
+    activate server
     server->>browser: information is displayed to the browser
+    deactivate server
     user->>browser: user sees the updated note
 ```

@@ -1,3 +1,4 @@
+mermaid ```
 sequenceDiagram
     participant user
     participant browser
@@ -31,4 +32,4 @@ sequenceDiagram
     deactivate server
     server->>browser: information is displayed to the browser
     user->>browser: user sees the updated note
-
+```

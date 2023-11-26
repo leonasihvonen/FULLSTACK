@@ -35,7 +35,27 @@ sequenceDiagram
 
     Note right of browser: The information is passed to the server
 
-    server-->>browser: information is displayed correctly to the browser
+    server-->>browser: Redirected, make new GET to notes
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    server-->>browser: the HTML notes site
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate server
+    server-->>browser: the css file
+    deactivate server
+    
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    activate server
+    server-->>browser: the JavaScript file
+    deactivate server
+    
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate server
+    server-->>browser: [{"content": "NEW NOTE", "date": "2023-11-11" }, ... ]
+    deactivate server
+
+    server-->>browser: code is printed correctly to the browser
     deactivate server
     browser-->>user: note is displayed to the user
 ```

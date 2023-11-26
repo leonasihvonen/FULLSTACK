@@ -32,10 +32,10 @@ sequenceDiagram
     browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
     deactivate browser
     activate server
-    
+
     Note right of browser: The information is passed to the server
 
-    server->>browser: information is displayed correctly to the browser
+    server-->>browser: information is displayed correctly to the browser
     deactivate server
-    browser->>user: note is displayed to the user
+    browser-->>user: note is displayed to the user
 ```

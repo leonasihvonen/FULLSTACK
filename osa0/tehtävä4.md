@@ -28,10 +28,10 @@ sequenceDiagram
 
     user->>browser: user writes text and presses the button
     activate browser
-    browser->>server: the infromation is forwarded to the server
+    browser->>server: the information is forwarded to the server
     deactivate browser
     activate server
     server->>browser: information is displayed to the browser
     deactivate server
-    user->>browser: user sees the updated note
+    browser->>user: note is displayed to the user
 ```

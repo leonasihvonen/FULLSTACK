@@ -26,12 +26,16 @@ sequenceDiagram
 
     Note right of browser: The browser executes the callback function that renders the notes 
 
-    user->>browser: user writes text and presses the button
+    user->>browser: user writes new note
+    user->>browser: user presses the "Tallenna" button/presses enter
     activate browser
-    browser->>server: the information is forwarded to the server
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+
+    Note right of browser: The information is passed to the server
+
     deactivate browser
     activate server
-    server->>browser: information is displayed to the browser
+    server->>browser: information is displayed correctly to the browser
     deactivate server
     browser->>user: note is displayed to the user
 ```

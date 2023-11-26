@@ -42,7 +42,7 @@ sequenceDiagram
     activate server
     server-->>browser: the HTML notes site
     deactivate server
-    
+
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
     activate server
     server-->>browser: the css file
@@ -55,7 +55,7 @@ sequenceDiagram
     
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
     activate server
-    server-->>browser: [{"content": "NEW NOTE", "date": "2023-11-11" }, ... ]
+    server-->>browser: [{"content": "NEW NOTE", "date": "2023-11-11" }]
     deactivate server
 
     server-->>browser: code is printed correctly to the browser

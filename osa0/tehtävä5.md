@@ -1,9 +1,8 @@
 ```mermaid
 sequenceDiagram
-    participant user
     participant browser
     participant server
-    
+
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
     activate server
     server-->>browser: the JavaScript file
@@ -22,20 +21,5 @@ sequenceDiagram
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
     activate server
     server-->>browser: the css file
-    deactivate server  
-
-    Note right of browser: The browser executes the callback function that renders the notes 
-
-    user->>browser: user writes new note
-    user->>browser: user presses the "Tallenna" button/presses enter
-    activate browser
-    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
-    deactivate browser
-    activate server
-
-    Note right of browser: The information is passed to the server
-
-    server-->>browser: code is printed correctly to the browser
     deactivate server
-    browser-->>user: note is displayed to the user
-```
+    ```

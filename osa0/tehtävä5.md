@@ -35,8 +35,6 @@ sequenceDiagram
 
     Note right of browser: The information is passed to the server
 
-
-
     server-->>browser: code is printed correctly to the browser
     deactivate server
     browser-->>user: note is displayed to the user

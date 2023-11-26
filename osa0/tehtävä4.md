@@ -30,10 +30,10 @@ sequenceDiagram
     user->>browser: user presses the "Tallenna" button/presses enter
     activate browser
     browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+    deactivate browser
 
     Note right of browser: The information is passed to the server
 
-    deactivate browser
     activate server
     server->>browser: information is displayed correctly to the browser
     deactivate server

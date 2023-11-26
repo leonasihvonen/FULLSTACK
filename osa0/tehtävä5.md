@@ -22,4 +22,4 @@ sequenceDiagram
     activate server
     server-->>browser: the css file
     deactivate server
-    ```
+```

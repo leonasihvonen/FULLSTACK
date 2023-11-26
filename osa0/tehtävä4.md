@@ -35,8 +35,8 @@ sequenceDiagram
 
     Note right of browser: The information is passed to the server
 
-    deactivate server
     server-->>browser: Redirected, make new GET to notes
+    deactivate server
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
     server-->>browser: the HTML notes site

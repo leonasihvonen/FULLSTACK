@@ -1,26 +1,27 @@
 const App = () => {
   const course = 'Half Stack application development'
-  const part1 = {
+  const parts = [
+  {
     name: 'Fundamentals of React',
     exercises: 10
-  }
-  const part2 = {
+  },
+  {
     name: 'Using props to pass data',
     exercises: 7
-  }
-  const part3 = {
+  },
+  {
     name: 'State of a component',
     exercises: 14
   }
-
-  const nimi = 'name'
-  const parts = part1[nimi] + ', ' + part2[nimi] + ', ' + part3[nimi]
+]
 
 
-  const sum = (part1, part2, part3) => {
-    return part1.exercises + part2.exercises + part3.exercises
-  }
-  const total = sum(part1, part2, part3)
+// muuttuja yhteenlasketuille tehtäville
+const total = parts[0].exercises + parts[1].exercises + parts[2].exercises;
+
+
+// muuttuja listalle nimistä
+const names = parts.map(part => part.name).join(', ');
 
   const Header = (props) => {
     return (
@@ -31,7 +32,7 @@ const App = () => {
   const Content = () => {
     return (
       <div>
-        <p>Content: {parts}</p>
+        <p>Content: {names}</p>
       </div>
     )
   }
@@ -43,11 +44,10 @@ const App = () => {
     )
   }
 
-
   return (
     <div>
       <Header course = {course}/>
-      <Content parts = {parts}/>
+      <Content part = {names}/>
       <Total total = {total}/>
     </div>
   )

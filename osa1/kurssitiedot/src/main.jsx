@@ -1,5 +1,8 @@
-import ReactDOM from 'react-dom/client'
+const App = (props) => {
+  const {counter} = props
+  return (
+    <div>{counter}</div>
+  )
+}
 
-import App from './App'
-
-ReactDOM.createRoot(document.getElementById('root')).render(<App />)
+export default App

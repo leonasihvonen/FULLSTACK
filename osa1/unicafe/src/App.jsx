@@ -6,15 +6,31 @@ const Header = (props) => {
   )
 }
 
+const Button = (props) => {
+  return (
+    <button onClick={props.handleClick}>
+      {props.text}
+    </button>
+  )
+}
+
+const StatisticLine = ({ text, value }) => {
+  return (
+    <div>
+      <p>{text} {value}</p>
+    </div>
+  )
+}
+
 const Statistics = (props) => {
     return (
     <div>
-    <p>Good {props.good}</p>
-    <p>Neutral {props.neutral}</p>
-    <p>Bad {props.bad}</p>
-    <p>All {props.total}</p>
-    <p>Average {props.average}</p>
-    <p>Positive {props.positive + '%'}</p>
+    <StatisticLine text="good" value ={props.good} />
+      <StatisticLine text="neutral" value ={props.neutral} />
+      <StatisticLine text="bad" value ={props.bad} />
+      <StatisticLine text="all" value ={props.total} />
+      <StatisticLine text="average" value ={props.average} />
+      <StatisticLine text="positive" value ={props.positive} />
     </div>
     )
   }
@@ -72,9 +88,15 @@ const App = () => {
   return (
     <div>
       <Header header="Give feedback"/>
-      <button onClick={handleGoodClick}>good</button>
-      <button onClick={handleNeutralClick}>neutral</button>
-      <button onClick={handleBadClick}>bad</button>
+      <Button
+      handleClick={handleGoodClick}
+      text = 'good'/>
+      <Button
+      handleClick={handleNeutralClick}
+      text = 'neutral'/>
+      <Button
+      handleClick={handleBadClick}
+      text = 'bad'/>
       <Header header="Statistics"/>
       {total === 0 ? (
         <div>

@@ -6,6 +6,19 @@ const Header = (props) => {
   )
 }
 
+const Statistics = ({good, neutral, bad, total, average, positive}) => {
+  return (
+  <div>
+    <p>Good {good}</p>
+    <p>Neutral {neutral}</p>
+    <p>Bad {bad}</p>
+    <p>All {total}</p>
+    <p>Average {average}</p>
+    <p>Positive {positive + '%'}</p>
+  </div>
+  )
+}
+
 const App = () => {
 
   const [good, setGood] = useState(0)
@@ -63,12 +76,15 @@ const App = () => {
       <button onClick={handleNeutralClick}>neutral</button>
       <button onClick={handleBadClick}>bad</button>
       <Header header="Statistics"/>
-      <p>Good {good}</p>
-      <p>Neutral {neutral}</p>
-      <p>Bad {bad}</p>
-      <p>All {total}</p>
-      <p>Average {average}</p>
-      <p>Positive {positive + '%'}</p>
+      <Statistics
+      good = {good}
+      neutral = {neutral}
+      bad = {bad}
+      all = {total}
+      average = {average}
+      positive = {positive}
+      />
+
     </div>
   )
 }

@@ -16,9 +16,11 @@ const Button = (props) => {
 
 const StatisticLine = ({ text, value }) => {
   return (
-    <div>
-      <p>{text} {value}</p>
-    </div>
+    <tr>
+      <td>{text}</td>
+      <td>{value}</td>
+    </tr>
+
   )
 }
 
@@ -28,9 +30,9 @@ const Statistics = (props) => {
     <StatisticLine text="good" value ={props.good} />
       <StatisticLine text="neutral" value ={props.neutral} />
       <StatisticLine text="bad" value ={props.bad} />
-      <StatisticLine text="all" value ={props.total} />
+      <StatisticLine text="all" value ={props.all} />
       <StatisticLine text="average" value ={props.average} />
-      <StatisticLine text="positive" value ={props.positive} />
+      <StatisticLine text="positive" value ={props.positive + '%'} />
     </div>
     )
   }
@@ -40,7 +42,7 @@ const App = () => {
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
-  const [total, setTotal] = useState(0)
+  const [all, setAll] = useState(0)
   const [averageValues, setAverageValues] = useState(0)
   const [calc, setCalc] = useState(0)
   const [average, setAverage] = useState(0)
@@ -53,7 +55,7 @@ const App = () => {
     setCalc(updatedCalc)
     const updatedGood = good + 1
     setGood(updatedGood)
-    setTotal(updatedGood + neutral + bad)
+    setAll(updatedGood + neutral + bad)
     setAverage(updatedAverageValues/updatedCalc)
     const updatedPositive = updatedGood / (updatedGood+neutral+bad) * 100
     setPositive(updatedPositive)
@@ -66,7 +68,7 @@ const App = () => {
     setCalc(updatedCalc)
     const updatedNeutral = neutral + 1
     setNeutral(updatedNeutral)
-    setTotal(good + updatedNeutral + bad)
+    setAll(good + updatedNeutral + bad)
     setAverage(updatedAverageValues/updatedCalc)
     const updatedPositive = good / (good+updatedNeutral+bad) * 100
     setPositive(updatedPositive)
@@ -79,7 +81,7 @@ const App = () => {
     setCalc(updatedCalc)
     const updatedBad = bad + 1
     setBad(updatedBad)
-    setTotal(good + neutral + updatedBad)
+    setAll(good + neutral + updatedBad)
     setAverage(updatedAverageValues/updatedCalc)
     const updatedPositive = good / (good+neutral+updatedBad) * 100
     setPositive(updatedPositive)
@@ -98,7 +100,7 @@ const App = () => {
       handleClick={handleBadClick}
       text = 'bad'/>
       <Header header="Statistics"/>
-      {total === 0 ? (
+      {all === 0 ? (
         <div>
           The app is used by pressing the buttons above.
           </div>
@@ -107,7 +109,7 @@ const App = () => {
       good = {good}
       neutral = {neutral}
       bad = {bad}
-      all = {total}
+      all = {all}
       average = {average}
       positive = {positive}
       />
